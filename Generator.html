@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+body {
+	position: relative;
+}
+div {
+	text-align: center;
+    position: relative;
+    top: 100px;
+    font-size: 80px;
+    height: 800px;
+    vertical-align: middle;
+	user-select: none;
+}
+</style>
+<script>
+const freqTable = {
+	// Letters
+	B: 3, C: 1, D: 3, E: 3, F: 2, H: 7, K: 1, M: 8,
+	N: 3, R: 1, S: 3, T: 6, W: 6, X: 7, Z: 4,
+
+	// Digits
+	3: 2, 4: 3, 5: 1, 7: 2, 8: 5, 9: 2,
+};
+const letters = "34579ABCDEFHJKMNQRSTWXY";
+
+
+// Build weighted pool
+/*const pool = [];
+for (const [char, count] of Object.entries(freqTable)) {
+	for (let i = 0; i < count; i++) {
+		pool.push(char);
+	}
+}
+
+// First character: must be a letter
+const letters = Object.keys(freqTable).filter(ch => isNaN(ch));*/
+
+function q() {
+    var str = "";
+    for (var i = 0; i < 10; ++i) {
+        var d = Math.random() < 5/18;
+        if (d) str += String.fromCharCode(48 + Math.random() * 10);
+        else str += String.fromCharCode(65 + Math.random() * 26);
+		if (i == 4) str += " ";
+    }
+    document.getElementById("div").textContent = str;
+}
+function p() {
+    var str = "";
+	for (var i = 0; i < 7; ++i)
+		str += letters[Math.floor(Math.random() * letters.length)];
+    document.getElementById("div").textContent = str;
+	navigator.clipboard.writeText(str);
+}
+window.addEventListener("load", p);
+</script>
+<body onclick="p()">
+	<div id="div"></div>
+</body>
+</html>
