@@ -24,7 +24,7 @@ span {
 const letters = "34579ABCDEFHJKMNQRSTWXY";
 function p() {
     var str = "";
-	for (var i = 0; i < 7; ++i)
+	for (var i = 0; i < 8; ++i)
 		str += letters[Math.floor(Math.random() * letters.length)];
     document.getElementById("span").textContent = str;
 	navigator.clipboard.writeText(str);
