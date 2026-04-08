@@ -21,11 +21,28 @@ span {
 }
 </style>
 <script>
+const pool =
+"7MX5RW9W\
+K5JX357X\
+WQ5E3BBK\
+W79RF5JS\
+WXT5J95C\
+NTNEHM9A\
+BRW9NTWQ\
+EHXTYS3A\
+FTEAH9X7\
+9MWA4WKH\
+5DM3JF73\
+3Q4Y4FQQ";
 const letters = "34579ABCDEFHJKMNQRSTWXY";
+function randomLetter() {
+	const val = pool;
+	return val[Math.floor(Math.random() * val.length)];
+}
 function p() {
     var str = "";
 	for (var i = 0; i < 8; ++i)
-		str += letters[Math.floor(Math.random() * letters.length)];
+		str += randomLetter();
     document.getElementById("span").textContent = str;
 	navigator.clipboard.writeText(str);
 }
